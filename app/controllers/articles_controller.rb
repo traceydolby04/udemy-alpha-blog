@@ -1,8 +1,15 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @articles_list = Article.all
+  end
   # This allows us to go to articles/new URL
   def new
     @article = Article.new
+  end
+
+  def edit
+    @article = Article.find(params[:id])
   end
 
 # This allows us to go to articles/create URL
@@ -23,9 +30,19 @@ class ArticlesController < ApplicationController
     end
 
   end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      flash[:notice] = "Article was updated"
+      redirect_to article_path(@article)
+    else
+      render 'edit'
+    end
+  end
   #grabbing from the params hash to find id
   def show
-    @article = Ariticle.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   # This allows us to save the keys from the information we receive
