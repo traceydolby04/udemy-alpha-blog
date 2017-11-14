@@ -1,5 +1,5 @@
 
-$navbar-default-bg: #08088A;
+$navbar-default-bg: #7d7b9b;
 
 
 @import "bootstrap-sprockets";
@@ -21,4 +21,45 @@ $navbar-default-bg: #08088A;
 }
 .center {
   text-align: center;
+}
+
+.jumbotron {
+  background-image: asset-url('pierconcertcopy.JPG');
+  background-size: cover;
+  height: 750px;
+}
+
+.jumbotron h1{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.btn-xlarge {
+  font-size: 1.7em;
+  background-color: lightslategray;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+footer ul {
+  float: right;
+  list-style: none;
+}
+footer ul li {
+  float: left;
+  margin-left: 15px;
 }
