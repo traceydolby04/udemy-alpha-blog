@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      flash[:notice] = "Article was successfully created"
+      flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)
       # display or prevent blank articles from being saved this is done in
       # articles/new.html.erb file
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   def update
 
     if @article.update(article_params)
-      flash[:notice] = "Article was updated"
+      flash[:success] = "Article was updated" # the :success will make the notice green
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   def destroy
 
     @article.destroy
-    flash[:notice] = "Article was successfully deleted"
+    flash[:danger] = "Article was successfully deleted" # the :danger will make the notice red
     redirect_to articles_path
 
   end
