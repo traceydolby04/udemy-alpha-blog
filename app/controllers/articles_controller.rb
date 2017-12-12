@@ -15,11 +15,15 @@ class ArticlesController < ApplicationController
 
 # This allows us to go to articles/create URL
   def create
+    # debugger # used to debug errors
+
     # to display what's being passed in from articles/new form
     # better way to write to save what is being passed in from articles/new form
     # we need to create a new instance variable and whitelist
     # the values of article
     @article = Article.new(article_params)
+    # HARD CODING USER to ensure article has a user
+    @article.user = User.first
 
     if @article.save
       flash[:success] = "Article was successfully created"

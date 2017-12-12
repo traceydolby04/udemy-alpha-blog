@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :articles
+  before_save { self.email = email.downcase }
   # this ensures the username is present in our application, and that
   # each username is unique
   validates :username, presence: true,
