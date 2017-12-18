@@ -1,0 +1,13 @@
+<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 center">
+          <!--- getting user object from users_controller.rb file under the show action--->
+          <%= gravatar_for @user, size: 150 %><!--- size is found in application_helper.rb file--->
+        </div>
+    </div>
+<!--- displaying a listing of all the user's articles--->
+<h4 align="center"><%= @user.username %>'s articles </h4>
+
+<!--- Rendering the _article.html.erb partial and listing all articles associated w/the user--->
+<%= render 'articles/article', obj: @user.articles %>

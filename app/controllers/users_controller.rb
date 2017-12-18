@@ -29,6 +29,10 @@ class UsersController < ApplicationController
 
     end
   end
+ # we want to find the user using id then display
+  def show
+    @user = User.find(params[:id])
+  end
 
   # we need to whitelist what we're accepting, and be able to create a new user with the params through
   # the params hash
