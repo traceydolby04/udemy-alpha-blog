@@ -13,6 +13,22 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+#initializing the users controller from users/edit.html.erb
+  def edit
+    @user = User.find(params[:id])
+  end
+#using the whitelist params below for if statement
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Your account was updated successfully"
+      redirect_to articles_path
+
+    else
+      render 'edit'
+
+    end
+  end
 
   # we need to whitelist what we're accepting, and be able to create a new user with the params through
   # the params hash
