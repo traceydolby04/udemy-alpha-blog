@@ -24,8 +24,8 @@ class ArticlesController < ApplicationController
     # we need to create a new instance variable and whitelist
     # the values of article
     @article = Article.new(article_params)
-    # HARD CODING USER to ensure article has a user
-    @article.user = User.first
+
+    @article.user = current_user
 
     if @article.save
       flash[:success] = "Article was successfully created"
