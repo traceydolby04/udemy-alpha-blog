@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -35,8 +35,10 @@ class UsersController < ApplicationController
     end
   end
  # we want to find the user using id then display
+  # we are grabbing the individual user from the show.html.erb view
   def show
     @user = User.find(params[:id])
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   # we need to whitelist what we're accepting, and be able to create a new user with the params through

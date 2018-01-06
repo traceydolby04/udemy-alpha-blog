@@ -8,6 +8,12 @@
     </div>
 <!--- displaying a listing of all the user's articles--->
 <h4 align="center"><%= @user.username %>'s articles </h4>
-
+    <div class="center">
+    <!--- @user_article is instance variable created in users_controller.rb show action --->
+         <%= will_paginate @user_articles %>
+    </div>
 <!--- Rendering the _article.html.erb partial and listing all articles associated w/the user--->
-<%= render 'articles/article', obj: @user.articles %>
+<%= render 'articles/article', obj: @user_articles %>
+    <div class="center">
+     <%= will_paginate @user_articles %>
+    </div>

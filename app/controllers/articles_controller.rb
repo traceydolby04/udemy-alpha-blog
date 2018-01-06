@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
 
+  # this will load default # of items per page
   def index
-    @articles_list = Article.all
+    @articles_list = Article.paginate(page: params[:page], per_page: 5 )
   end
   # This allows us to go to articles/new URL
   def new
