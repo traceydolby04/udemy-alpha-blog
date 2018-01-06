@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new] ## basically says you want all the routes except the new ones
 
+  ## This is linked to the controllers/sessions_controller.rb file
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
