@@ -14,8 +14,10 @@ class UsersController < ApplicationController
  # private method
     @user = User.new(user_params)
     if @user.save
+      # logging the user in once they sign up
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to Alpha Blog #{@user.username}"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
