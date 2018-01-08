@@ -17,8 +17,9 @@
             </div>
           </div>
 
- <!-- This resricts only a logged in user who created the article to be able to edit said articles -->
-          <% if logged_in? && current_user == article.user %>
+ <!-- This restricts only a logged in user who created the article to be able to edit said articles unless they are an
+  admin -->
+          <% if logged_in? && (current_user == article.user || current_user.admin?) %>
             <div class="article-actions">
 
               <%= link_to "Edit this article", edit_article_path(article_display), class: "btn btn-xs btn-primary" %>
