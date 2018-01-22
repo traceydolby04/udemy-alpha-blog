@@ -1,5 +1,7 @@
 <h1 align="center">Listing All Categories</h1>
 <div align="center"></div>
+
+<%= will_paginate %>
 <% @categories.each do |category|%> <!-- references categories_controller.rb -->
 
     <ul class="listing">
@@ -13,4 +15,5 @@
     </ul>
 
 <% end %>
+<%= will_paginate %>
 </div>
