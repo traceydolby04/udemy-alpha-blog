@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
 # new will be a new form
+
   def new
 
   end
 # create will create the user and log them in
   # we have the email and password being passed in through params hash
   def create
+  #removed @ from user
      @user = User.find_by(email: params[:session][:email].downcase)
     # to check if the above is valid
     if user && user.authenticate(params[:session][:password])
