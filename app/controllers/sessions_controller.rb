@@ -10,12 +10,12 @@ class SessionsController < ApplicationController
   #removed @ from user
      @user = User.find_by(email: params[:session][:email].downcase)
     # to check if the above is valid
-    if user && user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password])
       # this below will allow the browser's cookies to handle storing the user_id in the session and
       # simulate the user log in state (saving the user id in the sessions hash which is backed by browser)
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       flash[:success] = "You have successfully logged in"
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
       # flash.now persists for 1 http request
       flash.now[:danger] = "There was something wrong with your login information"

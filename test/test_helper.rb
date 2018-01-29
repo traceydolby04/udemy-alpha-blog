@@ -13,6 +13,7 @@ end
 
 def sign_in_as(user, password)
 
-  post login_path, params:{session:{email: user.email, password:password}}
+  post login_path, params:{session:{email: user.email, password:password}} # referenced in create_categories_test.rb
+  # file
 
 end
