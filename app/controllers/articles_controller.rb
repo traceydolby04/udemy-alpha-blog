@@ -66,9 +66,9 @@ class ArticlesController < ApplicationController
   end
 
   # This allows us to save the keys from the information we receive
-
+  # need to whitelist category id's in array form
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   # checking to see if the user is a logged in user and if they're an admin.
