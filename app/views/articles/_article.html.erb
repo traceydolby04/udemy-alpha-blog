@@ -19,6 +19,9 @@
 
  <!-- This restricts only a logged in user who created the article to be able to edit said articles unless they are an
   admin -->
+          <% if article_display.categories.any? %>
+              <p> Categories: <%= render article_display.categories %></p>
+          <% end %>
           <% if logged_in? && (current_user == article_display.user || current_user.admin?) %>
             <div class="article-actions">
 

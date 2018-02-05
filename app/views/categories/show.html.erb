@@ -1,0 +1,13 @@
+<h1 align="center"><%= "Category: " + @category.name %></h1>
+
+<!--- This is referring to the partial _article.html.erb file, and for the article partial
+use @articles as the value for obj --->
+<div align="center">
+  <%= will_paginate @category_articles %> <!-- found in categories_controller.rb under show action->
+</div>
+
+<%= render 'articles/article', obj:@category_articles %> <!---This will use the article partial which is found in
+articles/_article.html.erb-->
+<div align="center">
+  <%= will_paginate @category_articles%>
+</div>

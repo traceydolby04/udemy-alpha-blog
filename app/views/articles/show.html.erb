@@ -21,6 +21,10 @@
 
    <!--link_to will give you a button in embedded ruby, also current_user.admin?
    refers to add_admin_to_users in migration file-->
+    <% if @article.categories.any? %>
+       <p>Categories: <%= render @article.categories %></p> <!--don't need .each here because this will go through
+       each article automatically-->
+    <% end %>
     <div class="article-actions">
       <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
         <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
