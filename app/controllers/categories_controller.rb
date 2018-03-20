@@ -18,6 +18,20 @@ class CategoriesController < ApplicationController
       render 'new'
     end
   end
+   # this will be handled by the update form section
+  def edit
+    @category = Category.find(params[:id]) # finding the category we want to edit,by initializing the instance variable
+  end
+  #this should handle the edit section and only admins should have access to it because of the rules above
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params) # reusing the category_params method we have defined below.
+      flash[:success] = "Category name was successfully updated"
+      redirect_to category_path(@category)
+    else
+      render 'edit'
+    end
+  end
 
   def show
     @category = Category.find(params[:id])

@@ -2,7 +2,15 @@
 
 <!--- This is referring to the partial _article.html.erb file, and for the article partial
 use @articles as the value for obj --->
+
+<!-- This is referring to the categories page adding an edit button which links to the /edit portion of the
+categories page -->
 <div align="center">
+  <% if logged_in? and current_user.admin? %>
+    <div class="row"
+        <span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+     </div>
+  <% end %>
   <%= will_paginate @category_articles %> <!-- found in categories_controller.rb under show action->
 </div>
 
@@ -11,3 +19,5 @@ articles/_article.html.erb-->
 <div align="center">
   <%= will_paginate @category_articles%>
 </div>
+
+    <!--*****   Somewhere the pagination isn't working correctly... need to fix it (Lecture 149 and 151) **** ->
