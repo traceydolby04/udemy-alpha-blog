@@ -11,7 +11,7 @@ categories page -->
         <span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
      </div>
   <% end %>
-  <%= will_paginate @category_articles %> <!-- found in categories_controller.rb under show action->
+  <%= will_paginate @category_articles %> <!-- found in categories_controller.rb under show action-->
 </div>
 
 <%= render 'articles/article', obj:@category_articles %> <!---This will use the article partial which is found in
